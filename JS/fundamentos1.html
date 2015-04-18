@@ -15,6 +15,100 @@
 <body>
 	<h1>Fundamentos JS parte 1</h1>
 	<p><a href="index.html">Regrear al inicio</a></p>
-	<h2>Definiend un perro</h2>
+	<h2>Definiendo un perro</h2>
+	<script>
+		//comentantario de  una linea
+		/*
+		comentarios 
+		de 
+		varias
+		lineas
+		*/
+
+		//Clase o Prototipo es Perro
+		function Perro(n,r,e,s,a,f,c)
+		{
+			//this dentro de una función es el objeto que se define en la función
+			var o = this;
+			var imagen = document.createElement("img");
+
+			//Atributos de mi objeto
+			o.nombre = n;
+			o.raza = r;
+			o.edad = e;
+			//o.sexo = s;
+			o.adiestrado = a;
+			o.foto = f;
+			o.comida = c;
+
+			//Asignación ( 1 igual = )
+			//Comparación ( 2 iguales == compara que los valores sean iguales )
+			//Idéntico ( 3 iguales === compara que los valores y su tipo de dato sean idénticos )	
+
+			//operador ternario
+			//variable  = (condicion)?verdadero:falso
+			//o.sexo = (s == true)?"Macho":"Hembra";
+			//o.sexo = (s)?"Macho":"Hembra";
+			o.sexo = (!s)?"Hembra":"Macho";
+
+			//console.log(typeof n, typeof e, typeof s);
+
+			//métodos de mi objeto
+			o.aparecer = function()
+			{
+				//alert("aparecer");
+				//var imagen = document.createElement("img");
+				imagen.src = o.foto;
+				imagen.alt = o.nombre;
+				imagen.title = o.nombre;
+				document.body.appendChild(imagen);
+			}
+
+			o.ladrar = function()
+			{
+				alert("Guauu!!! Guauu!!!");
+				var audio = document.createElement("audio");
+				audio.src = "activos/guau.mp3";
+				//audio.controls = true;
+				//document.body.appendChild(audio);
+				audio.play();
+			}	
+
+			o.comer = function(comida)
+			{
+				o.comida = comida;
+				return alert(o.nombre+" comió "+o.comida);
+			}
+
+			o.mover = function()
+			{
+				//alert(o.nombre+" se mueve");
+				imagen.style.border = "thick orange solid";
+				imagen.style.borderRadius = "100%";
+				imagen.style.position = "relative";
+				imagen.style.left = "10em";
+			}
+		}
+
+		function iniciar()
+		{
+			//alert("Hola");
+			var kenai = new Perro("kEnAi","criollo",2,true,true,"activos/kenai.jpg");
+			//alert(kenai);
+			console.log(kenai);
+			document.write("<h1>"+kenai.nombre+"</h1>");
+			document.write("<p>"+kenai.raza+"</p>");
+			document.write("<p>"+kenai.edad+"</p>");
+			document.write("<p>"+kenai.sexo+"</p>");
+			document.write("<p>"+kenai.adiestrado+"</p>");
+			kenai.aparecer();
+			kenai.ladrar();
+			kenai.comer("Croqueta");
+			kenai.comer("Tacos");
+			kenai.mover();
+		}
+
+		iniciar();
+	</script>
 </body>
 </html>
