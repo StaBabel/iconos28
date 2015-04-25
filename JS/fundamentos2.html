@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Fundamentos 2</title>
+	<meta name="description" content="En este ejercicio seguiremos entendiendo fundamentos de programación en JavaScript" />
+	<style>
+		body, html { font-family: Helvetica, sans-serif; font-size: 16px; }
+	</style>
+</head>
+<body>
+	<h1>Fundamentos de Programación en JavaScript parte 2</h1>
+	<p>
+		<a href="index.html">Regresar al inicio</a>
+	</p>
+	<!-- 
+	Algoritmo: Es una serie de pasos a seguir para realizar una tarea, estos pasos son ordenados y finitos. Es como una receta =P.
+	
+	Diagramas de Flujo: Es la representación gráfica de un algoritmo.
+
+	Eventos:
+	http://librosweb.es/ajax/capitulo_6/modelo_basico_de_eventos.html
+
+	DOM: Document Object Model
+		http://es.wikipedia.org/wiki/Document_Object_Model
+		http://librosweb.es/ajax/capitulo_4.html
+
+	Estructuras de control: Condicionan el flujo de la programación.
+		1)Estructuras Secuenciales (se ejecutan una línea de código detrás de la otra).
+		2)Estructuras Condicionales o de Decisión
+			operador ternario
+			if-else
+			if-else if-else
+			switch-case
+		3)Estructuras Repetitivas o Ciclos
+			for
+			while
+	
+	Operadores Lógicos
+		1) AND - Y - && - Todas las condiciones deben cumplirse
+		2) OR  - O - || - Al menos una condición debe cumplirse
+		3) NOT - Negar - ! - Lo que es true se vuelve false, y lo que es false se vuelve true.
+	-->
+	<h2>Algoritmos y Diagramas de Flujo</h2>
+	<img src="activos/simbolos-diagramas-flujo.png" />
+	<h2>Eventos</h2>
+	<button onclick="eventoClick();">Manejador de eventos como atributo HTML</button>
+	<button id="boton">Manejador de eventos semántico</button>
+	<button id="boton2">Manejador de eventos múltiple</button>
+	<h2>¿Cómo determinamos si un número es par o impar?</h2>
+	<img src="activos/diagrama-par-impar.jpg" />
+	<!-- 
+	Algoritmo:
+		1)Saber cuál es el numero a determinar si es par o impar.
+		2)Dividir el número entre 2.
+		3)Evaluar el residuo:
+			4)Si el residuo es 0, el número es par.
+			5)Si el residuo es 1, el número es impar.
+	-->
+	<button id="numero">Dame un número</button>
+	<h2>Jugemos con la Fecha</h2>
+	<button id="hola">Hola</button>
+	<button id="bisiesto">Año Bisiesto</button>
+	<!-- 
+	Algoritmo:
+		http://es.wikipedia.org/wiki/A%C3%B1o_bisiesto
+		1)El año debe ser divisible entre 4, por ej. 2004, 2008.
+		2)Pero si el año es divisible entre 4 y 100, entonces no es bisiesto, por ej. 2100, 2200.
+		3)Pero Si el año es divisible entre 100 y 400, entonces si es bisiesto, por ej. 2000, 2400.
+		¿Por qué?
+			http://www.disfrutalasmatematicas.com/medida/anos-bisiestos.html
+	-->
+	<script src="js/fundamentos2.js"></script>
+</body>
+</html>
