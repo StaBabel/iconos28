@@ -12,6 +12,13 @@ var dia = fecha.getDay();
 
 var bisiesto = document.getElementById("bisiesto");
 
+var btnReloj = document.getElementById("reloj");
+var detenerReloj = document.getElementById("detener-reloj");
+var muestroHora = document.getElementById("muestro-hora");
+
+var btnAlarma = document.getElementById("alarma");
+var detenerAlarma = document.getElementById("detener-alarma");
+
 //DECLARACION DE FUNCIONES
 function eventoClick(evento)
 {
@@ -135,6 +142,45 @@ function anioBisiesto()
 	}
 }
 
+function reloj()
+{
+	var fechaReloj = new Date();
+	var hrReloj = fechaReloj.getHours();
+	var minReloj = fechaReloj.getMinutes();
+	var segReloj = fechaReloj.getSeconds();
+	var ampm = (hrReloj >= 12)?"pm":"am";
+
+	if(hrReloj >= 12)
+	{
+		//hrReloj = hrReloj - 12;
+		hrReloj -= 12;
+	}
+
+	if(hrReloj <= 9)
+	{
+		hrReloj = "0" + hrReloj
+	}
+
+	if(minReloj<=9)
+	{
+		minReloj = "0" + minReloj;
+	}
+
+	if(segReloj<=9)
+	{
+		segReloj = "0" + segReloj;
+	}
+
+	muestroHora.innerHTML = "<p>"+hrReloj+":"+minReloj+":"+segReloj+ampm+"</p>";
+}
+
+function alarma()
+{
+	var audio = document.createElement("audio");
+	audio.src = "activos/alarma.mp3";
+	return audio.play();
+}
+
 //EVENTOS y EJECUCIONES INMEDIATAS
 //Manejador de eventos semánticos
 window.onload = function(){
@@ -142,10 +188,25 @@ window.onload = function(){
 	boton.onclick = otroEventoClick;
 
 	boton2.addEventListener("click",eventoClick);
-
 	numero.addEventListener("click",parImpar);
-
 	hola.addEventListener("click",saluda);
-
 	bisiesto.addEventListener("click",anioBisiesto);
+
+	btnReloj.addEventListener("click",function(){
+		iniciarReloj = setInterval(reloj,1000);
+	});
+
+	detenerReloj.addEventListener("click",function(){
+		clearInterval(iniciarReloj);
+	});
+
+	btnAlarma.addEventListener("click",function()
+	{
+		iniciarAlarma = setTimeout(alarma,3000);
+	});
+
+	detenerAlarma.addEventListener("click",function()
+	{
+		clearTimeout(iniciarAlarma);
+	});
 };
