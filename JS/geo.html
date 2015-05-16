@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Geolocalización</title>
+	<style>
+		#mapa
+        {
+        	background-color: #444;
+            height: 90%;
+            left: 5%;
+            position: absolute;
+            width: 90%;
+            z-index: 0;
+        }
+	</style>
+</head>
+<body>
+	<ul class="botones">
+		<li><a href="#">Ubicación Actual</a></li>
+	</ul>
+	<section id="mapa"></section>
+	<!-- 
+    	https://developers.google.com/maps/documentation/javascript/
+    	https://developers.google.com/maps/documentation/javascript/libraries
+    -->
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=true&language=es"></script>
+	<script>
+		function noTeEncontre(error)
+		{
+			console.log(error);
+			alert("Error N°: "+error.code+"\nMensaje: "+error.message);
+		}
+
+		function teEncontre(posicion)
+		{
+			console.log(posicion);
+			var latitud = posicion.coords.latitude;
+			var longitud = posicion.coords.longitude;
+			//alert(latitud+","+longitud);
+
+			var posActual = new google.maps.LatLng(latitud,longitud);
+			var mapaLienzo = document.querySelector("#mapa");
+			var mapaOpc = {
+				center:posActual,
+				mapTypeControl:true,
+				//ROADMAP SATELLITE HYBRID TERRAIN
+				mapTypeId:google.maps.MapTypeId.ROADMAP,
+				panControl:false,
+				zoom:15,
+				zoomControl:true,
+				streetViewControl:false
+			};
+
+			var mapa = new google.maps.Map(mapaLienzo,mapaOpc);
+
+			var marcador = new google.maps.Marker({
+				map:mapa,
+				position:posActual,
+				title:"Aquí estoy",
+				draggable:true
+			});
+		}
+
+		
+
+		function geolocalizacion()
+		{
+			var opciones = {
+				enableHighAccuracy:true
+			};
+
+			navigator.geolocation.getCurrentPosition(
+				teEncontre,
+				noTeEncontre,
+				opciones
+			);
+		}
+
+		window.addEventListener("load",geolocalizacion);
+	</script>
+</body>
+</html>
