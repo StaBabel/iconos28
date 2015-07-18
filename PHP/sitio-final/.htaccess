@@ -1,0 +1,15 @@
+Options +FollowSymlinks
+RewriteEngine On
+#Esto es un comentario
+
+RewriteBase /aAlumnos/iconos28/PHP/sitio-final/
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+RewriteRule ^(.*)$ index.php?p=$1 [L]
+#RewriteRule ^(.*)/(.*)$ index.php?sec=$1&cat=$2 [L]
+
+#RewriteRule ^acerca acerca/
+#RewriteRule ^servicios servicios/
+#RewriteRule ^contacto contacto/
