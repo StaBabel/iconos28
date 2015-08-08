@@ -26,7 +26,11 @@
 		<header id="cabecera">
 			<h1>Super Héroes</h1>
 			<div><img src="img/super-heroes.png" alt="Super Héroes" /></div>
-			<a id="insertar" href="#">Insertar</a>
+		<?php 
+		if($_SESSION["rol"]=="A") {
+			printf('<a id="insertar" href="#">Insertar</a>');
+		}
+		 ?>
 		</header>
 		<section id="contenido">
 			<!-- <p>Aquí contenido</p> -->

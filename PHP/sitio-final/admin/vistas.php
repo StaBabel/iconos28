@@ -48,6 +48,63 @@ function mostrarHeroes()
 		}
 		else
 		{
+			/* INICIA PAGINACIÓN */
+				//Limitar mi consulta SQL
+				$regXPag = 3;
+				$pagina = false;
+
+				//Examinar la página a mostrar y el inicio del registro a mostrar
+				if(isset($_GET["p"]))
+				{
+					$pagina = $_GET["p"];
+				}
+
+				if(!$pagina)
+				{
+					$inicio = 0;
+					$pagina = 1;
+				}
+				else
+				{
+					$inicio = ($pagina - 1) * $regXPag;
+				}
+
+				//calculó el total de páginas
+				$totalPaginas = ceil($totalRegistros/$regXPag);
+
+				$sql .= " LIMIT ".$inicio.",".$regXPag;
+
+				//echo $sql."<br />".$totalPaginas;
+
+				$resultado = $mysql->query($sql);
+
+				//despliegue de  la paginación
+				$paginacion = "<div class='paginacion'>";
+					$paginacion .= "<p>";
+						$paginacion .= "Número de resultados: <b>$totalRegistros</b>. ";
+						$paginacion .= "Mostrando <b>$regXPag</b> resultados por página. ";
+						$paginacion .= "Página <b>$pagina</b> de <b>$totalPaginas</b>.";
+					$paginacion .= "</p>";
+
+					if($totalPaginas>1)
+					{
+						$paginacion .= "<p>";
+							$paginacion .= ($pagina!=1)?"<a href='?p=".($pagina-1)."'>&laquo</a>":"";
+							
+							for($i=1;$i<=$totalPaginas;$i++)
+							{
+								//si muestro el índice de la página actual, no coloco enlace
+								$actual = "<span class='actual'>$pagina</span>";
+								//si el índice no corresponde con la página mostrada actualmente, coloco el enlace para ir a esa página
+								$enlace = "<a href='?p=$i'>$i</a>";
+								$paginacion .= ($pagina == $i)?$actual:$enlace;
+							}
+							
+							$paginacion .= ($pagina!=$totalPaginas)?"<a href='?p=".($pagina+1)."'>&raquo</a>":"";
+						$paginacion .= "</p>";
+					}
+				$paginacion .= "</div>";
+			/* TERMINA PAGINACIÓN */
 			
 			$tabla = "<table id='tabla-heroes' class='tabla'>";
 			$tabla .= "<thead>";
@@ -70,8 +127,15 @@ function mostrarHeroes()
 					$tabla .= "<td><img src='img/".$fila["imagen"]."' /></td>";
 					$tabla .= "<td><p>".$fila["descripcion"]."</p></td>";
 					$tabla .= "<td><h3>".$editorial[$fila["editorial"]]."</h3></td>";
-					$tabla .="<td><a href='#' class='editar' data-id='".$fila["id_heroe"]."'>Editar</a></td>";
-					$tabla .= "<td><a href='#' class='eliminar' data-id='".$fila["id_heroe"]."'>Eliminar</a></td>";
+					if($_SESSION["rol"]=="A")
+					{
+						$tabla .="<td><a href='#' class='editar' data-id='".$fila["id_heroe"]."'>Editar</a></td>";
+						$tabla .= "<td><a href='#' class='eliminar' data-id='".$fila["id_heroe"]."'>Eliminar</a></td>";
+					}
+					else
+					{
+						$tabla .= "<td></td><td></td>";
+					}
 				$tabla .= "</tr>";
 			}
 			$resultado->free();
