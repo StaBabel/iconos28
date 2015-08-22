@@ -170,6 +170,125 @@ function efectos()
 			'text-shadow':'5px 5px 10px #000'
 		})
 	})
+
+	$('#enlace').on({
+		click:function(evento) {
+			evento.preventDefault()
+			alert('he prevenido la acción del enlace')
+		},
+		mouseover:function (){
+			$('span').addClass('span-css')
+		},
+		mouseout:function (){
+			$('span').removeClass('span-css')
+		}
+	});
+
+	$('#boton20').on('click',function (){
+		//$('#ajax').load('otro.html')
+		$('#ajax').load('otro.html #logo')
+	})
+
+	$('#boton21').on('click',function (){
+		$('#ajax').load('otro.html',function (){
+			$(this)
+				.css({display:'none'})
+				.fadeIn(2000)
+		})
+	})
+
+	$('#que-tecla').on('keyup', function (evento){
+		$('#codigo-tecla').text(evento.keyCode)
+	})
+
+	$('#subir').on('click', function(){
+		$('html, body').animate({
+			scrollTop:0,
+			scrollLeft:0
+		},1000)
+	})
 }
 
-$(document).on('ready',efectos)
+function muevete(evento)
+{
+	//console.log(evento)
+	//alert(evento.keyCode)
+
+	switch(evento.keyCode)
+	{
+		case 37:
+			evento.preventDefault()
+			$('#pacman').animate({left:'-=2em'}, 'swing')
+			break;
+
+		case 38:
+			evento.preventDefault()
+			$('#pacman').animate({top:'-=2em'},'swing');
+			break;
+
+		case 39:
+			evento.preventDefault()
+			$('#pacman').animate({left:'+=2em'}, 'swing')
+			break;
+
+		case 40:
+			evento.preventDefault()
+			$('#pacman').animate({top:'+=2em'},'swing');
+			break;
+	}
+}
+
+function detectarScroll()
+{
+	var scrollVertical = $(window).scrollTop(),
+		scrollHorizontal = $(window).scrollLeft()
+
+	//console.log(scrollHorizontal, scrollVertical)
+
+	return ( scrollVertical>100 ) ? $('#subir').fadeIn() : $('#subir').fadeOut()
+}
+
+function responsiveDesign()
+{
+	var anchoPantalla = $(window).width(),
+		altoPantalla = $(window).height()
+
+	console.log(anchoPantalla, altoPantalla)
+
+	if( anchoPantalla <= 480 )
+	{
+		$('.item')
+			.removeClass('dos-columnas')
+			.removeClass('tres-columnas')
+			.removeClass('cuatro-columnas')
+	}
+	else if( anchoPantalla <= 768 )
+	{
+		$('.item')
+			.addClass('dos-columnas')
+			.removeClass('tres-columnas')
+			.removeClass('cuatro-columnas')
+	}
+	else if( anchoPantalla <= 1024 )
+	{
+		$('.item')
+			.removeClass('dos-columnas')
+			.addClass('tres-columnas')
+			.removeClass('cuatro-columnas')
+	}
+	else
+	{
+		$('.item')
+			.removeClass('dos-columnas')
+			.removeClass('tres-columnas')
+			.addClass('cuatro-columnas')
+	}
+}
+
+$(document)
+	.on('ready', efectos)
+	.on('keydown', muevete)
+
+$(window)
+	.on('scroll', detectarScroll)
+	.on('resize load', responsiveDesign)

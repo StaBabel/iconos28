@@ -54,3 +54,34 @@ hr { border-color: #292623; margin: 1em auto; }
 	font-size: 3em;
    	font-weight: bold;
 }
+
+.container
+{
+	margin: auto;
+	padding: 1rem;
+	width: 90%;
+	font-size: 0;
+	border: thick solid #444;
+	background-color: #CCC;
+}
+
+.item
+{
+	padding: 1rem;
+	box-sizing: border-box;
+	border: thick solid #444;
+	font-size: 1rem;
+	background-color: #EEE;
+}
+
+.i-b
+{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.dos-columnas { width: 50%; }
+
+.tres-columnas { width: 33.33333333333333% }
+
+.cuatro-columnas { width: 25%; }
