@@ -1,0 +1,24 @@
+html, body, section { height: 100%; }
+
+header{
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 999;
+}
+
+section { padding-top: 10em; }
+
+section:not(#inicio) { color: white; }
+
+#inicio { background: #EEE; }
+
+#jqi { background: #B24926; }
+
+#jqm { background: #108040; }
+
+#jqs { background: #FF8200; }
+
+#jqu { background: #390F39; }
+
+#jqy { background: #0769AD; }
