@@ -1,0 +1,82 @@
+*, *:after, *:before
+{
+	border: 0;
+	-ms-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body, html
+{
+	background: #B24926;
+	color: white;
+	font-family: Helvetica, sans-serif;
+	font-size: 16px;
+	text-align: center;
+}
+
+header
+{
+	background: #292623;
+	border-bottom: thick solid #FAA523;
+	padding: 2em;
+}
+
+img { max-width: 100%; }
+
+input[type="date"], input[type="email"], input[type="text"], textarea
+{
+	background: white;
+	font-size: 1em;
+	padding: .25em;
+	width: 95%;
+}
+
+input[type="date"]:focus, input[type="email"]:focus, input[type="text"]:focus, textarea:focus { background: #FAA523; }
+
+input[type="submit"]
+{
+	background: #FAA523;
+	color: white;
+	font-family: "chaletcito";
+	font-size: 1.25em;
+	margin-top: .5em;
+	padding: .5em;
+}
+
+input[type="submit"]:hover { background: #B24926; cursor: pointer; }
+
+label
+{
+	cursor: pointer;
+	display: block;
+	margin: .5em auto;
+	text-align: left;
+}
+
+textarea { resize:none; }
+
+#contacto, #respuesta
+{
+	background: #292623;
+	display: inline-block;
+	min-height: 500px;
+	padding: 1em;
+	vertical-align: top;
+	width: 45%;	
+}
+
+#contenido { margin: 2em auto; width: 80%; }
+
+#mensaje
+{
+	background: #B24926;
+	border: thick solid #FAA523;
+	font-size: 1.5em;
+	padding: 2em;
+}
+
+#mensaje, #precarga { display: none; }

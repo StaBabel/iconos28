@@ -14,12 +14,67 @@ Implementación:
 	3)Si el componente usa elementos multimedia, busca sus url en el css del mismo y reemplázalas por la nueva ruta que tendrán.
 	4)En el css del componente nunca trates de cambiar atributos, puedes hacer que deje de funcionar, si acaso modifica colores para que se adapte al diseño de tu proyecto.
 */
-
-// Can also be used with $(document).ready()
-$(window).load(function() {
+function efectos()
+{
 	$('.flexslider').flexslider({
-		animation: "slide",
-		direction : "vertical",
+		animation: 'slide',
+		direction : 'vertical',
 		controlNav : false
 	});
-});
+	
+	$('.galeria-sencilla').fancybox()
+
+	$('#efecto1').fancybox({
+		openEffect : 'elastic',
+		openSpeed : 2000
+	})
+
+	$('#efecto2').fancybox({
+		closeEffect : 'elastic',
+		closeSpeed : 1500,
+		helpers : {
+			title : {
+				type :'inside',
+				position : 'top'
+			}
+		}
+	})
+
+	$('#efecto3').fancybox({
+		helpers:{
+			title: {
+				type : 'outside',
+				position : 'top'
+			},
+			overlay : {
+				css : {
+					'background-color' : 'rgba(255,102,0,.5)'
+				},
+				closeClick : false
+			}
+		}
+	})
+
+	$('#efecto4').fancybox({
+		closeEffect : 'none',
+		closeSpeed : 3000,
+		helpers : {
+			title : {
+				type : 'over',
+				position : 'top'
+			}
+		}
+	})
+
+	$('#efecto5').fancybox({
+		helpers : {
+			title : {
+				position : 'top'
+			}
+		}
+	})
+
+	$('.otros').fancybox()
+}
+
+$(document).on('ready', efectos)
