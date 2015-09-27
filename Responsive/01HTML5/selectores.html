@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Selectores CSS</title>
+	<style>
+		/* html */
+		:root { 
+			background-color: #CCC;
+			font-size: 16px;
+		}
+
+		/* 
+		h1 {
+			margin: 1rem auto;
+			padding: 1rem;
+			color: red;
+			width: 80%;
+		}
+		
+		h2 {
+			margin: 1rem auto;
+			padding: 1rem;
+			color: red;
+			width: 60%;
+		}
+		*/
+		h1, h2 {
+			margin: 1rem auto;
+			padding: 1rem;
+			color: red;
+			width: 80%;
+		}
+
+		h2 { width: 60%; }
+
+		h1 + h2 { background-color: green; }
+
+		section ~ article { color: orange; }
+
+
+		article[title="hola"] { background-color: skyblue; }
+
+		article[class~="negro"] { background-color: black; }
+
+		article:not(#hola) { background: gray !important; }
+
+		*[class|="title"] { color: yellow; }
+
+		*[data-up] { font-size: 2rem; }
+
+		article:hover { 
+			font-size: 3rem;
+			background-color: pink;
+			transition: all .5s ease-out;
+		}
+
+		:required { outline: thin solid green; }
+
+		input:invalid { outline: thin solid red; }
+
+		li:first-child { background-color: peru; }
+
+		li:first-of-type { font-size: 2rem; }
+
+		li:nth-child(4n) { background-color: greenyellow; }
+
+		li:nth-child(odd) { background-color: pink; }
+
+		li:nth-child(even) { background-color: salmon; }
+
+		p::first-letter { font-size: 5rem; }
+
+		p::first-line { background-color: skyblue; }
+
+		article::before {
+			content: 'hola';
+		}
+
+		article::after {
+			content: 'adios';
+		}
+
+		::selection {
+			background-color: black;
+			color: orange;
+		}
+	</style>
+</head>
+<body>
+	<h2 class="sub-title" data-up>Encabezado h2</h2>
+	<h1 class="title-main">Encabezado h1</h1>
+	<h2 class="title-sub">Encabezado h2</h2>
+	<form action="">
+		<input type="text" required>
+		<input type="text" required>
+		<input type="text" required>
+		<input type="submit">
+	</form>
+	<div>
+		<h2>Encabezado h2</h2>
+	</div>
+	<article id="hola">
+		Esto es un article
+	</article>
+	<a href="#">enlace</a>
+	<ul>
+		<a href="#">enlace</a>
+		<li><a href="#">1</a></li>
+		<li><a href="#">2</a></li>
+		<li><a href="#">3</a></li>
+		<li><a href="#">4</a></li>
+		<li><a href="#">1</a></li>
+		<li><a href="#">2</a></li>
+		<li><a href="#">3</a></li>
+		<li><a href="#">4</a></li>
+		<a href="#">enlace</a>
+	</ul>
+	<ol>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ol>
+	<article>
+		Esto es un article
+	</article>
+	<section>
+		Esto es un section
+	</section>
+	<article title="hola" class="rojo  verde  blanco  negro">
+		Esto es un article
+	</article>
+	<h3>Encabezado h3</h3>
+	<article title="hola" class="rojo  verde  blanco">
+		Esto es un article
+	</article>
+	<article>
+		Esto es un article
+	</article>
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia consequatur repellendus quidem voluptates inventore alias debitis, dolorem porro doloremque nihil in tempore laboriosam, similique repudiandae voluptatibus dolore. Dolores, explicabo provident.
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque autem animi magnam atque ducimus commodi fuga modi aspernatur suscipit, laboriosam debitis quod officiis sunt perferendis nulla repellendus aperiam aliquam mollitia!
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat temporibus, repudiandae velit quae neque doloribus, veniam. Magnam perspiciatis, illo natus minima, saepe error, voluptas ullam cum inventore in harum optio.
+	</p>
+</body>
+</html>

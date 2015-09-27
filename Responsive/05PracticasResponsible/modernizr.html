@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+	<meta charset="UTF-8">
+	<title>Modernizr</title>
+	<meta name="description" content="En este documento explicaremos el concepto de Modernizr en el Responsible Design">
+	<link rel="stylesheet" href="../estilos.css">
+	<script src="js/modernizr.js"></script>
+</head>
+<body>
+	<section class="container">
+		<h1 class="center">Modernizr</h1>
+		<a class="container  margin  center" href="progressive-disclousure.html">regresar</a>
+		<hr class="margin">
+		<p>
+			Es una librería JS que nos permite detectar las características HTML5 y CSS3 soportadas por nuestro navegador
+		</p>
+		<p>
+			Si el navegador no soporta la característica que pretendemos usar, Modernizr nos avisará y nos permitirá implementar algún <b>polyfill</b> que nos pueda ayudar a simular, soportar o reemplazar dicha característica en navegadores que no la soportan.
+		</p>
+		<ul>
+			<li><a href="http://modernizr.com" target="_blank">Sitio Web</a></li>
+			<li><a href="http://modernizr.com/docs/" target="_blank">Documentación</a></li>
+			<li><a href="http://modernizr.com/download/" target="_blank">Configurar la Descarga</a></li>
+		</ul>
+		<h3>¿Qué es un Polyfill?</h3>
+		<p>
+			Un polyfill o polyfiller, es una pieza de código (o plugin) que proporciona la tecnología que nosotros, los desarrolladores, esperamos que el navegador soporte de forma nativa. La generación de un pollyfill dependerá de la creatividad y habilidad del desarrollador.
+		</p>
+		<p>
+			Algunos <b><a href="https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills" target="_blank">Pollyfills</a></b> ya hechos.
+		</p>
+		<h3>¿Cómo funciona Modernizr?</h3>
+		<pre>
+			<code>
+&lt;script src="js/modernizr.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+	var caracteristicaAEvaluar = {
+		test:Lo que voy a evaluar,
+
+		yep:"ruta/del/archivo-en-caso-de-soporte",
+		yep:["archivo1","archivo2","archivon"],
+
+		nope:"ruta/del/archivo-en-caso-de-no-soporte",
+		nope:["archivo1","archivo2","archivon"],
+
+		both:"ruta/del/archivo-requerido-en-ambos-casos",
+		both:["archivo1","archivo2","archivon"],
+
+		complete:function(){
+		
+			//Función que se ejecuta cuando los archivos han cargado
+			if(Modernizr.soportaCaracterística)
+			{
+				//Códigos en caso de soportar la característica
+			}
+			else
+			{
+				//Códigos en caso de NO soportar la característica
+			}
+
+		}
+	}
+
+	Modernizr.load(caracteristicaAEvaluar)
+&lt;/script&gt;
+			</code>
+		</pre>
+		<h3>Ejemplos</h3>
+		<ul>
+			<li>
+				<h4>Etiquetas Semánticas</h4>
+				<p>Si el navegador no reconoce las etiquetas semánticas de HTML5 forzar a que las detecte como cajas de bloque</p>
+				<div class="example">
+					<header>Header</header>
+					<article>Article</article>
+					<footer>Footer</footer>
+				</div>
+			</li>
+			<li>
+				<h4>Validación de formularios vacíos</h4>
+				<p>Si el navegador soporta el atributo requerido enviar el formulario, sino hacer la validación con JS</p>
+				<div class="example">
+					<form id="formulario" action="http://bextlan.com">
+						<div>
+							<label for="nombre">Nombre</label>
+							<input type="text" id="nombre" required>
+						</div>
+						<div>
+							<label for="twitter">Twitter</label>
+							<input type="twitter" id="twitter" required>
+						</div>
+						<div>
+							<input type="submit" id="enviar" value="Enviar">
+						</div>
+					</form>
+				</div>
+			</li>
+			<li>
+				<h4>Mostrar un calendario nativo de HTML5</h4>
+				<p>Si el navegador soporta el input de tipo fecha mostrar el calendario, sino mostrar uno hecho con JS</p>
+				<div class="example">
+					<input type="date" id="calendario" required>
+				</div>
+			</li>
+			<li>
+				<h4>Geolocalización</h4>
+				<p>Si el navegador soporta el API de Geolocalización mostrar un mapa embebido de Google Maps, sino un enlace a la página de Google Maps</p>
+				<div class="example" id="mapa"></div>
+			</li>
+			<li>
+				<h4>Video HTML5</h4>
+				<p>Si el navegador soporta la etiqueta video mostrar el video en formato HTML5, sino mostrarlo con FLASH</p>
+				<p>Si el navegador soporta la etiqueta video, estandarizar la presentación de los controles de reproducción</p>
+				<div class="example" id="video">
+					<video id="video-js" controls class="video-js vjs-default-skin" width="640" height="264">
+						<source src="video/el-mejor-amigo.mp4" type="video/mp4" />
+						<source src="video/el-mejor-amigo.webm" type="video/webm" />
+					</video>
+				</div>
+			</li>
+		</ul>
+	</section>
+</body>
+</html>
