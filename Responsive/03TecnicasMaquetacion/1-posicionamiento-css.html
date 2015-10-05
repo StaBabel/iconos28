@@ -3,6 +3,76 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Posicionamiento CSS</title>
+	<style>
+		html {
+			font-family: sans-serif;
+			font-size: 16px;
+		}
+
+		div {
+			position: static;
+			width: 300px;
+			height: 100px;
+			text-align: center;
+			color: #FFF;
+			background-color: #205081;
+			border: thin solid #FF5700;
+		}
+
+		article, section {
+			width: 700px;
+			height: 200px;
+			color: #FFF;
+			background-color: #222;
+			border: thin solid #FF5700;
+		}
+
+		section {
+			position: relative;
+			width: 800px;
+			height: 1000px;
+			z-index: 0;
+		}
+
+		.z-index-2 { 
+			background-color: red;
+			z-index: 2; 
+		}
+
+		.pos-rel {
+			position: relative;
+			top: 102px;
+			left: 303px;
+		}
+
+		.pos-abs {
+			position: absolute;
+			top: 350px;
+			left: 200px;
+			z-index: -1;
+		}
+
+		.pos-fix {
+			position: fixed;
+			bottom: 0;
+			right: 0;
+		}
+
+		body > div:last-child { height: 1000px; }
+
+		.pos-sticky {
+			/* http://caniuse.com/#search=sticky */
+			position: sticky;
+			top: 0;
+			left: 500px;
+		}
+
+		.float-left { float: left; }
+
+		.float-right { float: right; }
+
+		.clear { clear: both; }
+	</style>
 </head>
 <body>
 	<h1>Tipos de Posicionamiento</h1>
@@ -15,5 +85,39 @@
 		<li>Flotante: Convierte un elemento en flotante desplazándolo hasta la zona más a la izquierda o más a la derecha de la posición en la que originalmente se encontraba</li>
 		<li><a href="http://librosweb.es/libro/css/capitulo_5.html" target="_blank">+ info</a></li>
 	</ul>
+	<div>
+		<h2>1 - Estático</h2>
+	</div>
+	<div class="pos-rel">
+		<h2>2 - Relativo</h2>
+	</div>
+	<div class="pos-abs">
+		<h2>3 - Absoluto con body</h2>
+	</div>
+	<section>
+		<article>
+			<div class="pos-abs  z-index-2">
+				<h2>4 - Absoluto con padre relativo</h2>
+			</div>
+		</article>
+	</section>
+	<div class="pos-fix">
+		<h2>5 - Fijo</h2>
+	</div>
+	<div class="pos-sticky">
+		<h2>6 - Pegajoso</h2>
+	</div>
+	<div class="float-left">
+		<h2>7 - Flotante Izquierda</h2>
+	</div>
+	<div class="float-right">
+		<h2>8 - Flotante Derecha</h2>
+	</div>
+	<div class="float-right">
+		<h2>9 - Flotante Derecha</h2>
+	</div>
+	<div class="clear">
+		<h2>10 - con Clear para limpiar floats</h2>
+	</div>
 </body>
 </html>

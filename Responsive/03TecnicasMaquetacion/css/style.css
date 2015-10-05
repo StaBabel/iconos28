@@ -1,0 +1,23 @@
+html {
+	text-align: center;
+	background-color: #205081;
+	color: #FFF;
+}
+
+a { color: #FF5700; }
+
+a:hover { color: #FFF; }
+
+h1 {
+	margin-top: 2rem; 
+	font-size: 2rem;
+}
+
+.container { padding: 1rem; }
+
+.item {
+	height: 100px;
+	padding: 1rem;
+	font-size: 2rem;
+	border: thin solid #FF5700;
+}

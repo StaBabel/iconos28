@@ -28,6 +28,7 @@ La entrega puede ser vía email, dropbox, google drive, one drive o cualquier me
 * [Adaptive Web Design](http://adaptivewebdesign.info/)
 * [Responsible Responsive Design](http://abookapart.com/products/responsible-responsive-design)
 
+
 ## :school: Sesión 1: 26 Septiembre 2015
 
 ### :chart_with_upwards_trend: Objetivo de la Sesión:
@@ -53,11 +54,43 @@ Conocer el panorama del diseño web actual y sus tecnologías. Aprender buenas p
 * Que proyecto voy a desarrollar
 * Revisar los enlaces comentados en clase
 
+
 ## :school: Sesión 2: 03 Octubre 2015
+
 ### :chart_with_upwards_trend: Objetivo de la Sesión:
+Conocer las diferentes estrategias existentes para adaptar el diseño web actual a cualquier tipo de dispositivo. Analizar los diferentes tipos de posicionamiento y visualización existentes en CSS. Conocer las diferentes técnicas de Maquetación existentes en CSS.
+
 ### :clipboard: Temas y conceptos aprendidos:
+* Graceful Degradation
+* Progresive Enhancement
+* Desktop First
+* Mobile First
+* Responsive Design
+* Adaptive Design
+* Responsible Responsive Design
+* RESS (Responsive Design + Server Side)
+* Tipos de Posicionamiento CSS
+	* Estático
+	* Relativo
+	* Absoluto
+	* Fijo
+	* Pegajoso
+	* Flotante
+* Tipos de Visualización CSS
+	* Visibility
+	* Display
+* Técnicas de Maquetación CSS
+	* Floats
+	* Display inline-block
+	* Display table
+	* Display flex
+
 ### :globe_with_meridians: Links revisados en la sesión 2:
+* Ver los enlaces de la teoría vista en clase
+
 ### :pencil: Actividades para la sesión 3:
+* Revisar los enlaces y la teoría de Flexbox
+
 
 ## :school: Sesión 3: 10 Octubre 2015
 ### :chart_with_upwards_trend: Objetivo de la Sesión:

@@ -3,6 +3,30 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Visualización CSS</title>
+	<style>
+		html {
+			font-family: sans-serif;
+			font-size: 16px;
+		}
+
+		div { background-color: orange; }
+
+		span { background-color: skyblue; }
+
+		.numbers li {
+			width: 100px;
+			height: 100px;
+			text-align: center;
+			color: #FFF;
+			background-color: #205081;
+			border: thin solid #FF5700;
+		}
+
+		.numbers li:nth-child(5) {
+			/* display: none; */
+			visibility: hidden;
+		}
+	</style>
 </head>
 <body>
 	<h1>Tipos de Visualización</h1>
