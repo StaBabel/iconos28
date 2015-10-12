@@ -93,10 +93,30 @@ Conocer las diferentes estrategias existentes para adaptar el diseño web actual
 
 
 ## :school: Sesión 3: 10 Octubre 2015
+
 ### :chart_with_upwards_trend: Objetivo de la Sesión:
+Aprender y aplicar todas las propiedades de Flexbox como técnica de Maquetación. Conocer los elementos que interactuan en el Responsive Design.
+
 ### :clipboard: Temas y conceptos aprendidos:
+* Flexbox
+* Viewport
+* Estructura Fluida
+* Fuentes
+* Medios Flexibles
+* Imágenes Flexibles
+* Media Queries
+* Breakpoints
+* Desktop First
+* Mobile First
+
 ### :globe_with_meridians: Links revisados en la sesión 3:
+* Ver los enlaces de la teoría vista en clase
+
 ### :pencil: Actividades para la sesión 4:
+* Revisar los enlaces y la teoría restante de la unidad 4 y 5
+* Terminar el ejercicio visto en clase con filosofía Mobile First
+* Ir avanzando en los puntos 1 al 5 de su documento de Arquitectura de Información
+
 
 ## :school: Sesión 4: 17 Octubre 2015
 ### :chart_with_upwards_trend: Objetivo de la Sesión:
