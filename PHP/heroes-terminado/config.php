@@ -1,0 +1,12 @@
+<?php 
+define("SERVER","localhost");
+define("USER","root");
+define("PASS","");
+define("DB","super_heroes");
+/*
+define("SERVER","mysql.hostinger.mx");
+define("USER","u675251920_jon");
+define("PASS","jonasbolas");
+define("DB","u675251920_run");
+*/
+?>
