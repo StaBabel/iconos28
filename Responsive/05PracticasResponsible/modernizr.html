@@ -7,7 +7,7 @@
 	<title>Modernizr</title>
 	<meta name="description" content="En este documento explicaremos el concepto de Modernizr en el Responsible Design">
 	<link rel="stylesheet" href="../estilos.css">
-	<script src="js/modernizr.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>	
 </head>
 <body>
 	<section class="container">
@@ -123,5 +123,98 @@
 			</li>
 		</ul>
 	</section>
+	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+	<script>
+		var requiredAttribute = {
+			complete : function(){
+				if(Modernizr.input.required)
+				{
+					//alert('Tu navegador SI soporta el atributo required')
+				}
+				else
+				{
+					//alert('Tu navegador NO soporta el atributo required')
+					document.getElementById('formulario').onsubmit =  function() {
+						return false;
+					}
+
+					document.getElementById('enviar').onclick = function () {
+						if( !document.getElementById('nombre').value || !document.getElementById('twitter').value )
+						{
+							alert('Los datos son requeridos')
+						}
+						else
+						{
+							document.getElementById('formulario').submit()
+						}
+					}
+				}
+			}
+		}
+
+		Modernizr.load(requiredAttribute)
+
+		var calendar = {
+			test : Modernizr.inputtypes.date,
+			nope : [
+				'//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css',
+				'//code.jquery.com/ui/1.11.4/jquery-ui.js'
+			],
+			complete : function (){
+				if( Modernizr.inputtypes.date )
+				{
+					//	alert("Tu navegador SI soporta el input date de HTML5")
+				}
+				else
+				{
+					//alert("Tu navegador NO soporta el input date de HTML5")
+					$('#calendario').datepicker({
+						dateFormat:'dd/mm/yy'
+					});
+				}
+			}
+		}
+
+		Modernizr.load(calendar)
+
+		var geolocation = {
+			complete : function (){
+				if( Modernizr.geolocation )
+				{
+					document.getElementById('mapa').innerHTML = '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9916246075636!2d2.2944812999999997!3d48.858370099999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0!2sTorre+Eiffel!5e0!3m2!1ses-419!2smx!4v1436851628183" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>'
+				}
+				else
+				{
+					document.getElementById('mapa').innerHTML = '<a href="https://www.google.com.mx/maps/place/Torre+Eiffel/@48.8583701,2.2944813,17z/data=!3m1!4b1!4m2!3m1!1s0x47e66e2964e34e2d:0x8ddca9ee380ef7e0!6m1!1e1" target="_blank">Ver Mapa</a>'
+				}
+			}
+		}
+
+		Modernizr.load(geolocation)
+
+		var video = {
+			test : Modernizr.video,
+			yep : [
+				'http://vjs.zencdn.net/4.12/video-js.css',
+				'http://vjs.zencdn.net/4.12/video.js'
+			],
+			complete : function (){
+				if(Modernizr.video)
+				{
+					//alert('Tu navegador SI soporta Video HTML5')
+					videojs('video-js', {}, function(){
+  						// Player (this) is initialized and ready.
+					});
+				}
+				else
+				{
+					//alert('Tu navegador NO soporta Video HTML5')
+					document.getElementById('video').innerHTML = '<iframe src="video/video.html" width="426" height="240" frameborder="0"></iframe>'
+				}
+			}
+		}
+
+		Modernizr.load(video)
+	</script>
 </body>
 </html>

@@ -1,0 +1,206 @@
+/* 
+This reset is based on the * {box-sizing: border-box} FTW Paul Irish and normalize.css 3.0.2
+http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+https://necolas.github.io/normalize.css/3.0.2/normalize.css
+*/
+
+/* html, body & children */
+
+html {
+	-ms-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	font-family: sans-serif;
+	font-size: 16px;
+	-ms-text-size-ajust: 100%;
+	-moz-text-size-ajust: 100%;
+	-webkit-text-size-ajust: 100%;
+	text-size-ajust: 100%;
+	background-color: #FFF;
+	color: #000;
+}
+
+body { overflow-x: hidden; }
+
+*, *::after, *::before {
+	-ms-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	-webkit-box-sizing: inherit;
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+/* links */
+
+a { background-color: transparent; }
+
+a:active, a:hover {	outline: 0;	}
+
+/* headings */
+
+h1 { 
+	font-size: 32px;
+	font-size: 2rem;
+}
+
+h2 { 
+	font-size: 28px;
+	font-size: 1.75rem;
+}
+
+h3 { 
+	font-size: 24px;
+	font-size: 1.5rem;
+}
+
+h4 { 
+	font-size: 20px;
+	font-size: 1.25rem;
+}
+
+h5, a, abbr, b, code, dfn, em, i, li, mark, p, pre, strong { 
+	font-size: 16px;
+	font-size: 1rem;
+}
+
+h6, small { 
+	font-size: 12px;
+	font-size: .75rem;
+}
+
+/* list tags */
+
+li {
+	margin-left: 16px;
+	margin-left: 1rem;
+	list-style-type: inherit;
+	list-style-position: inside;
+}
+
+/* inline tags */
+
+abbr, dfn, em, i { font-style: italic; }
+
+abbr[title] { border-bottom: thin dotted; }
+
+b, strong, optgroup {  font-weight: bold; }
+
+mark { 
+	background-color: #FF0;
+	color: #000;
+}
+
+sub, sup {
+	font-size: 12px;
+	font-size: .75rem;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -8px;
+	top: -.5rem;
+}
+
+sub {
+	bottom: -4px;
+	bottom: -.25rem;
+}
+
+pre { overflow: auto; }
+
+code, kbd, pre, samp {
+	font-family: monospace, monospace;
+	font-size: 16px;
+	font-size: 1rem;
+}
+
+hr { 
+	margin: auto;
+	width: 100%;
+	height: 0;
+	border: thin solid #000;
+}
+
+/* block tags */
+
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary { display: block; }
+
+/* media tags */
+
+audio, canvas, img, iframe, picture, progress, svg, video {
+	display: inline-block;
+	vertical-align: baseline;
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+	border: 0;
+}
+
+audio:not([controls]) {
+	display: none;
+	height: 0;
+}
+
+[hidden], template { display: none; }
+
+svg:not(:root) { overflow: hidden; }
+
+/* form tags */
+
+button, input, optgroup, option, select, textarea {
+	padding: 4px;
+	padding: .25rem;
+	font-family: inherit;
+	font-size: 16px;
+	font-size: 1rem;
+	border: thin solid #000;
+	color: inherit;
+}
+
+button { overflow: visible; }
+
+button, select { text-transform: none; }
+
+input { line-height: normal; }
+
+textarea { 
+	vertical-align: bottom;
+	overflow: auto;
+	resize: none;
+}
+
+button, input[type="button"], input[type="submit"], input[type="reset"], input[type="checkbox"], input[type="radio"], label, select { cursor: pointer; }
+
+*[disabled] {
+	cursor: default;
+	color: #999;
+	background-color: #DDD;
+}
+
+fieldset {
+	border: thin solid #C0C0C0;
+	padding: 8px;
+	padding: .5rem;
+}
+
+/* table tags */
+
+table { border-collapse: collapse; }
+
+table, td, th { border: thin solid #000; }
+
+/* selection */
+
+::selection {
+	color: #FFF;
+	background-color: #338FFF;
+}
+
+::-moz-selection {
+	color: #FFF;
+	background-color: #338FFF;
+}

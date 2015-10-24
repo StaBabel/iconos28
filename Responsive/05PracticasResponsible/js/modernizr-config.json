@@ -1,0 +1,18 @@
+{
+  "minify": true,
+  "options": [
+    "addTest",
+    "atRule",
+    "hasEvent",
+    "testAllProps",
+    "testProp",
+    "html5shiv",
+    "setClasses"
+  ],
+  "feature-detects": [
+    "test/geolocation",
+    "test/input",
+    "test/inputtypes",
+    "test/video"
+  ]
+}
